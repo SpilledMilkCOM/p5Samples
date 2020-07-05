@@ -33,14 +33,12 @@ function draw() {
     // margin will return "16px 0px" and converting this to an int will remove the noise
     footerSize = footerP.size().height + int(footerP.style("margin")) * 2;
 
-//    alert("footerSize" + int(footerP.style("margin")));
+    //    alert("footerSize" + int(footerP.style("margin")));
 
-    if (x + diameter + direction > windowWidth)
-    {
+    if (x + diameter + direction > windowWidth) {
         direction = -1;
     }
-    else if (x < 0)
-    {
+    else if (x < 0) {
         direction = 1;
     }
 
@@ -49,4 +47,4 @@ function draw() {
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight - footerSize);
-  }
+}
