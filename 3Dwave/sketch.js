@@ -1,7 +1,7 @@
 // REF: https://p5js.org/reference/
 
 let angle = 0;
-let w = 50;
+let w = 24;
 let ma;     // "magic angle"
 let maxD;
 let canvasSide = 500;
@@ -44,8 +44,7 @@ function draw() {
             let a = angle + offset;
             let h = floor(map(sin(a), -1, 1, 100, 300));
 
-            //ambientMaterial(255);
-            normalMaterial(255);
+            normalMaterial();
             translate(x - halfWidth, 0, z - halfHeight);
             box(w, h, w);
 
