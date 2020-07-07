@@ -2,6 +2,10 @@
 
 Some beginner samples of p5
 
+* 📁 **3Dview**
+  * A 3D model testing the different primitives.
+  * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/N732bVsDQ)
+
 * 📁 **3Dwave**
   * A 3D wave made from boxes (from The Coding Train).
   * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/sGvWkvl86)
