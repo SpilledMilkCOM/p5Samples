@@ -2,6 +2,10 @@
 
 Some beginner samples of p5
 
+* 📁 **3Dbug**
+  * A 3D model illustrating a possible 2D / 3D line bug.
+  * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/-fHjsQGQN)
+
 * 📁 **3Dview**
   * A 3D model testing the different primitives.
   * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/N732bVsDQ)
