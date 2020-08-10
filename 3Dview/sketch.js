@@ -1,12 +1,18 @@
 // REF: https://p5js.org/reference/
 
+let angleX = 0;
+let angleY = 0;
+let angleZ = 0;
+
 let canvasSide = 500;
 
 let boxSide = 50;
+let frameCounter = 0.0;
 let frameScale = 0.01;
 
 function setup() {
-    createCanvas(canvasSide, canvasSide, WEBGL);
+    createCanvas(windowWidth, windowHeight, WEBGL);
+
     //createCheckbox('Stroke', true);
 }
 
@@ -22,10 +28,26 @@ function draw() {
 
     // Rotate the reference
 
-    let angle = frameCount * frameScale;
+    if (! mouseIsPressed)
+    {
+        frameCounter++;
 
-    rotateX(angle);
-    rotateY(angle * 0.25);
+        angleX = frameCounter * frameScale;
+        angleY = angleX * 0.25;
+
+        rotateX(angleX);
+        rotateY(angleY);
+    }
+    else
+    {
+        angleX += -movedY * 0.01;
+        angleY += movedX * 0.01;
+
+        rotateX(angleX);
+        rotateY(angleY);
+
+        frameCounter = angleX / frameScale;
+    }
 
     //noStroke();      // Get ride of the edges
 
@@ -84,4 +106,8 @@ function drawSphere(x, y, z, r)
     translate(x, y, z);
     sphere(r);
     pop();
+}
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
 }

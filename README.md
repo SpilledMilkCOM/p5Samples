@@ -5,6 +5,8 @@ Some beginner samples of p5
 * 📁 **3Dbug**
   * A 3D model illustrating a possible 2D / 3D line bug.
   * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/-fHjsQGQN)
+  * No longer a bug as this as the GL canvas has been changing and resolved in the a version after.  It is fixed in version 1.1.9.
+  Full details are in this [issue](https://github.com/processing/p5.js/issues/4722).
 
 * 📁 **3Dview**
   * A 3D model testing the different primitives.
