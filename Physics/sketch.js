@@ -1,19 +1,32 @@
 // REF: https://p5js.org/reference/
 
 let canvasSide = 500;
-let frameScale = 3.0;
+let velocityScale = 2.5;
 
-let fishBox = null;
-let myBall = null;
+let fishBowl = null;
+let balls = null;
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
-    fishBox = new ContainmentBox(createVector(windowWidth / 4, windowHeight / 4, windowWidth / 2));
+    // https://p5js.org/reference/#/p5.Vector
 
-    myBall = new Ball(windowWidth / 20);
+    fishBowl = new ContainmentBox(createVector(windowWidth / 4, windowHeight / 4, windowWidth / 2));
 
-    myBall.changeVelocity(createVector(-1, -2, -5));
+    balls = new Array();
+
+    for(count = 0; count < 1000; count++)
+    {
+        balls.push(new Ball(windowWidth / 100 * random(0.75, 1.0)));
+
+        let xVelocity = random(-1, 1) * velocityScale;
+        let yVelocity = random(-1, 1) * velocityScale;
+        let zVelocity = random(-1, 1) * velocityScale;
+
+        balls[count].changeVelocity(createVector(xVelocity, yVelocity, zVelocity));
+
+        balls[count].changeColor(color(random(128,255), random(128,255), random(128,255)));
+    }
 }
 
 function draw() {
@@ -28,13 +41,14 @@ function draw() {
 
     noStroke();
 
-    fishBox.contain(myBall);
-
-    myBall.draw();
+    balls.forEach(ball => {
+        fishBowl.contain(ball);
+        ball.draw()
+    });
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 
-    myBall.changeRadius(windowWidth / 20);
+    balls.forEach(ball => ball.changeRadius(windowWidth / 200 * random(0.5, 1.0)));
 }
