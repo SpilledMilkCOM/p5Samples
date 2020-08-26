@@ -1,16 +1,16 @@
-class Ball extends Element {
+class Box extends Element {
 
-    constructor (radius)
+    constructor (size)
     {
         super();
 
-        this.collisionRadius = radius;
-        this.radius = radius;
+        this.collisionRadius = (size.x + size.y + size.z) / 6;
+        this.size = size;
     }
 
-    changeRadius(radius)
+    changeSize(size)
     {
-        this.radius = radius;
+        this.size = size;
     }
 
     collided(element)
@@ -19,10 +19,8 @@ class Ball extends Element {
         || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
     }
 
-    drawElement() {     // OVERRIDE
-        // Spheres don't look very good with their lattice.
-        noStroke();
-
-        sphere(this.radius);
+    drawElement() {
+        noStroke();     // TODO: Make this a property of the element.
+        box(this.size.x, this.size.y, this.size.z);
     }
 }

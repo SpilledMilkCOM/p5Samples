@@ -1,54 +1,48 @@
 // REF: https://p5js.org/reference/
 
 let canvasSide = 500;
+let containmentScale = 1.5;
 let velocityScale = 2.5;
 
 let fishBowl = null;
 let balls = null;
+let scene = null;
 
 function setup() {
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     // https://p5js.org/reference/#/p5.Vector
 
-    fishBowl = new ContainmentBox(createVector(windowWidth / 4, windowHeight / 4, windowWidth / 2));
+    scene = new Scene();
 
-    balls = new Array();
+    scene.changePointLightLocation(createVector(windowWidth / 2, windowHeight / 2, windowWidth / 2));
+    scene.changeContainment(new ContainmentBox(createVector(windowWidth / 8 * containmentScale, windowHeight / 8 * containmentScale, windowWidth / 5 * containmentScale)));
 
-    for(count = 0; count < 1000; count++)
+    for(count = 0; count < 100; count++)
     {
-        balls.push(new Ball(windowWidth / 100 * random(0.75, 1.0)));
+        //let element = new Ball(windowWidth / 200 * random(0.75, 1.0));
+        let element = new Box(createVector(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0)));
 
         let xVelocity = random(-1, 1) * velocityScale;
         let yVelocity = random(-1, 1) * velocityScale;
         let zVelocity = random(-1, 1) * velocityScale;
 
-        balls[count].changeVelocity(createVector(xVelocity, yVelocity, zVelocity));
+        element.changeVelocity(createVector(xVelocity, yVelocity, zVelocity));
+        element.changeColor(color(random(128,255), random(128,255), random(128,255)));
 
-        balls[count].changeColor(color(random(128,255), random(128,255), random(128,255)));
+        scene.addElement(element);
     }
 }
 
 function draw() {
-    background(128);
-
-    // If no light is present, the color will be very flat
-
-    ambientLight(60, 60, 60);
-    pointLight(255, 255, 255, canvasSide / 2, canvasSide / 2, 100);
-
-    // Spheres don't look very good with their lattice.
-
-    noStroke();
-
-    balls.forEach(ball => {
-        fishBowl.contain(ball);
-        ball.draw()
-    });
+    scene.draw();
 }
 
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 
-    balls.forEach(ball => ball.changeRadius(windowWidth / 200 * random(0.5, 1.0)));
+    // TODO: Add a scale() method
+
+    //scene.elements.forEach(element => element.changeRadius(windowWidth / 200 * random(0.5, 1.0)));
+    scene.elements.forEach(element => element.changeSize(createVector(windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0))));
 }
