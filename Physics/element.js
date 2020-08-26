@@ -4,7 +4,7 @@ class Element {
         // https://p5js.org/reference/#/p5/color
 
         this.color = color(255);
-        
+
         // https://p5js.org/reference/#/p5.Vector
 
         this.location = createVector(0, 0, 0);
@@ -19,13 +19,19 @@ class Element {
         this.color = color;
     }
 
-    changeLocation(location)
-    {
+    changeLocation(location) {
         this.location = location;
     }
 
-    changeVelocity(velocity)
-    {
+    changeRotation(rotation) {
+        this.rotation = rotation;
+    }
+
+    changeRotationalVelocity(rotationalVelocity) {
+        this.rotationalVelocity = rotationalVelocity;
+    }
+
+    changeVelocity(velocity) {
         this.velocity = velocity;
     }
 
@@ -33,12 +39,24 @@ class Element {
         push();
 
         fill(this.color);
+
+        // Then translate to its location.
+
         translate(this.location.x, this.location.y, this.location.z);
 
+        // Rotate about itself.
+
+        rotateX(this.rotation.x);
+        rotateY(this.rotation.y);
+        rotateZ(this.rotation.z);
+
         this.drawElement();
- 
+
         pop();
 
-        this.location.add(this.velocity);
+        if (!mouseIsPressed) {
+            this.location.add(this.velocity);
+            this.rotation.add(this.rotationalVelocity);
+        }
     }
 }
