@@ -16,14 +16,14 @@ function setup() {
     scene = new Scene();
 
     scene.changePointLightLocation(createVector(windowWidth / 2, windowHeight / 2, windowWidth / 2));
-    scene.changeContainment(new ContainmentBox(createVector(windowWidth / 8 * containmentScale, windowHeight / 8 * containmentScale, windowWidth / 5 * containmentScale)));
+    scene.changeContainment(new ContainmentBox(createVector(windowWidth / 8 * containmentScale, windowHeight / 8 * containmentScale, windowWidth / 7 * containmentScale)));
 
     for(count = 0; count < 100; count++)
     {
         //let element = new Ball(windowWidth / 200 * random(0.75, 1.0));
         //let element = new Box(createVector(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0)));
-        //let element = new Cone(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
-        let element = new Cylinder(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
+        let element = new Cone(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
+        //let element = new Cylinder(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
 
         let xVelocity = random(-1, 1) * velocityScale;
         let yVelocity = random(-1, 1) * velocityScale;

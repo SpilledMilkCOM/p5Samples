@@ -11,6 +11,7 @@ class Scene {
         this.ambientLight = color(60);
         this.pointLightColor = color(255);
         this.pointLightLocation = createVector(0, 0, 0);
+        this.rotation = createVector(0, 0, 0);
 
         this.containment = null;
     }
@@ -48,6 +49,17 @@ class Scene {
         if (this.pointLightColor && this.pointLightLocation) {
             pointLight(this.pointLightColor, this.pointLightLocation);
         }
+
+        if (mouseIsPressed) {
+            this.rotation.x += -movedY * 0.01;
+            this.rotation.y += movedX * 0.01;
+        }
+
+        // Rotate entire scene.
+
+        rotateX(this.rotation.x);
+        rotateY(this.rotation.y);
+        rotateZ(this.rotation.z);
 
         this.elements.forEach(element => {
             if (this.containment) {
