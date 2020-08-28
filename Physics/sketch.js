@@ -32,7 +32,7 @@ function setup() {
         let myFrameRate = 60; //frameRate();
         let rotationPerSecond = 2 * PI / myFrameRate * random(0.1, 0.2) * (random() < 0.5 ? -1 : 1);
 
-        element.changeRotationalVelocity(createVector(rotationPerSecond, rotationPerSecond, rotationPerSecond));
+        //element.changeRotationalVelocity(createVector(rotationPerSecond, rotationPerSecond, rotationPerSecond));
 
         scene.addElement(element);
     }
@@ -53,8 +53,11 @@ function createRandomElement() {
         //let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
         // Cheerios (or donuts)
         //let element = new Torus(createVector(windowWidth / 100, windowWidth / 200));
-        let element = new Line(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0))
-                               , createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
+        // let element = new Line(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0))
+        //                        , createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
+
+        //let element = new Point(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
+        let element = new Point(createVector(0, 0, 0));
 
         return element;
 }
