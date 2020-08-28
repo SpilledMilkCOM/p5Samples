@@ -13,6 +13,11 @@ class Sphere extends Element {
         this.radius = radius;
     }
 
+    changeSize(size)
+    {
+        this.radius = size.x;
+    }
+
     collided(element)
     {
         return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
