@@ -14,6 +14,8 @@ class Scene {
         this.rotation = createVector(0, 0, 0);
 
         this.containment = null;
+
+        this.drawAxes = createVector(0, 0, 0);
     }
 
     addElement(element) {
@@ -26,6 +28,10 @@ class Scene {
 
     changeContainment(containment){
         this.containment = containment;
+    }
+
+    changeDrawAxes(drawAxes) {
+        this.drawAxes = this.drawAxes;
     }
     
     changePointLightColor(pointLightColor) {
