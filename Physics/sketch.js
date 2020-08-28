@@ -27,20 +27,21 @@ function setup() {
         //let element = new Plane(createVector(windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0) * 2));
         //let element = new Ellipsoid(createVector(windowWidth / 100 * random(0.5, 1.0), windowWidth / 100 * random(0.5, 1.0), windowWidth / 100 * random(0.5, 1.0)));
         // M&M's
-        let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
+        //let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
+        // Cheerios (or donuts)
+        let element = new Torus(createVector(windowWidth / 100, windowWidth / 200));
 
         let xVelocity = random(-1, 1) * velocityScale;
         let yVelocity = random(-1, 1) * velocityScale;
         let zVelocity = random(-1, 1) * velocityScale;
 
         element.changeVelocity(createVector(xVelocity, yVelocity, zVelocity));
-        element.changeColor(color(random(128,255), random(128,255), random(128,255)));
+        element.changeColor(color(random(128,255), random(128,255), random(128,255), random(128,255)));
 
         let myFrameRate = 60; //frameRate();
         let rotationPerSecond = 2 * PI / myFrameRate * random(0.1, 0.2) * (random() < 0.5 ? -1 : 1);
 
-        //element.changeRotationalVelocity(createVector(rotationPerSecond, rotationPerSecond, 0));
-        element.changeRotationalVelocity(createVector(rotationPerSecond, 0, rotationPerSecond));
+        element.changeRotationalVelocity(createVector(rotationPerSecond, rotationPerSecond, rotationPerSecond));
 
         scene.addElement(element);
     }
