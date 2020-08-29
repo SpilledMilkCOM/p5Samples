@@ -22,3 +22,9 @@ Some beginner samples of p5
 * 📁 **Starter**
   * My first p5 starter kit created in the [p5 web editor](https://editor.p5js.org/)
   * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/IvkGgnQJW)
+
+## References
+
+* [p5.js API Reference](https://p5js.org/reference/)
+* [WebGL Fundamentals](https://webglfundamentals.org/)
+* [WebGL Wiki](https://www.khronos.org/webgl/wiki/Main_Page)

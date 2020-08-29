@@ -16,6 +16,8 @@ class Scene {
         this.containment = null;
 
         this.drawAxes = createVector(0, 0, 0);
+
+        this.mouseOrTouch = new MouseOrTouch();
     }
 
     addElement(element) {
@@ -26,14 +28,14 @@ class Scene {
         this.backgroundColor = backgroundColor;
     }
 
-    changeContainment(containment){
+    changeContainment(containment) {
         this.containment = containment;
     }
 
     changeDrawAxes(drawAxes) {
         this.drawAxes = this.drawAxes;
     }
-    
+
     changePointLightColor(pointLightColor) {
         this.pointLightColor = pointLightColor;
     }
@@ -42,6 +44,9 @@ class Scene {
         this.pointLightLocation = pointLightLocation;
     }
 
+    /**
+     * Call this in the p5.js draw() function (called each frame)
+     */
     draw() {
         background(this.backgroundColor);
 
@@ -56,9 +61,9 @@ class Scene {
             pointLight(this.pointLightColor, this.pointLightLocation);
         }
 
-        if (mouseIsPressed) {
-            this.rotation.x += -movedY * 0.01;
-            this.rotation.y += movedX * 0.01;
+        if (this.mouseOrTouch.mouseIsPressed()) {
+            this.rotation.x += -this.mouseOrTouch.movedY() * 0.01;
+            this.rotation.y += this.mouseOrTouch.movedX() * 0.01;
         }
 
         // Rotate entire scene.
