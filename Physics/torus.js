@@ -2,14 +2,9 @@ class Torus extends Element {
 
     constructor (size)
     {
-        super();
+        super(size);
 
         this.collisionRadius = size.x;
-        this.size = size;
-    }
-
-    changeSize(size)
-    {
         this.size = size;
     }
 

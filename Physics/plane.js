@@ -2,15 +2,9 @@ class Plane extends Element {
 
     constructor (size)
     {
-        super();
+        super(size);
 
         this.collisionRadius = (size.x + size.y) / 4;
-        this.size = size;
-    }
-
-    changeSize(size)
-    {
-        this.size = size;
     }
 
     collided(element)
