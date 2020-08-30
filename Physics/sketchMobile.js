@@ -36,6 +36,15 @@ function draw() {
     scene.draw();
 }
 
+function mouseWheel(event) {
+
+    scene.adjustScale(event.delta * 0.001);
+
+    //uncomment to block page scrolling
+
+    return false;
+  }
+
 function touchEnded() {
     scene.mouseOrTouch.touchEnded();
 }
@@ -51,7 +60,7 @@ function touchStarted() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 
-    scene.elements.forEach(element => element.scale(windowWidth / originalWindowWidth));
+    scene.changeScale(windowWidth / originalWindowWidth);
 }
 
 // ----==== PRIVATE ====-------------------------------------------------------------------------------------

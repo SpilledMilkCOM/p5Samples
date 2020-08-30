@@ -3,6 +3,7 @@ class Element {
 
         this.originalSize = createVector(size.x, size.y, size.z);
         this.size = size;
+        this.scale = 1.0;
 
         // https://p5js.org/reference/#/p5/color
 
@@ -32,6 +33,12 @@ class Element {
 
     changeRotationalVelocity(rotationalVelocity) {
         this.rotationalVelocity = rotationalVelocity;
+    }
+    
+    changeScale(scale) {
+        this.scale = scale;
+        
+        this.changeSize(createVector(this.originalSize.x * scale, this.originalSize.y * scale, this.originalSize.z * scale))
     }
     
     changeSize(size)
@@ -66,9 +73,5 @@ class Element {
             this.location.add(this.velocity);
             this.rotation.add(this.rotationalVelocity);
         }
-    }
-
-    scale(scale) {
-        this.changeSize(createVector(this.originalSize.x * scale, this.originalSize.y * scale, this.originalSize.z * scale))
     }
 }

@@ -43,6 +43,10 @@ class MouseOrTouch {
         return result;
     }
 
+    mouseWheel(event) {
+        
+    }
+
     movedX() {
         //console.log("movedX()");
 

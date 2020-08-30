@@ -18,10 +18,17 @@ class Scene {
         this.drawAxes = createVector(0, 0, 0);
 
         this.mouseOrTouch = new MouseOrTouch();
+        this.scale = 1.0;
     }
 
     addElement(element) {
         this.elements.push(element);
+    }
+
+    adjustScale(scaleAdjustment) {
+        this.scale += scaleAdjustment;
+
+        this.scaleElements(this.scale);
     }
 
     changeBackground(backgroundColor) {
@@ -42,6 +49,12 @@ class Scene {
 
     changePointLightLocation(pointLightLocation) {
         this.pointLightLocation = pointLightLocation;
+    }
+
+    changeScale(scale) {
+        this.scale = scale;
+        
+        this.scaleElements(this.scale);
     }
 
     /**
@@ -83,5 +96,9 @@ class Scene {
             }
             element.draw()
         });
+    }
+
+    scaleElements(scale) {
+        this.elements.forEach(element => element.changeScale(scale));
     }
 }
