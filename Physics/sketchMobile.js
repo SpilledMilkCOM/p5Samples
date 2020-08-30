@@ -38,7 +38,7 @@ function draw() {
 
 function mouseWheel(event) {
 
-    scene.adjustScale(event.delta * 0.001);
+    scene.adjustScale(event.delta * 0.0005);
 
     //uncomment to block page scrolling
 
@@ -77,10 +77,10 @@ function createRandomElement() {
 
         //let element = new Ellipsoid(createVector(windowWidth / 100 * random(0.5, 1.0), windowWidth / 100 * random(0.5, 1.0), windowWidth / 100 * random(0.5, 1.0)));
         // M&M's
-        let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
+        //let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
 
         // Cheerios (or donuts)
-        //let element = new Torus(createVector(windowWidth / 100, windowWidth / 200));
+        let element = new Torus(createVector(windowWidth / 100, windowWidth / 200));
 
         // let element = new Line(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0))
         //                        , createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
