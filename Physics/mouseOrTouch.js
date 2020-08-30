@@ -38,13 +38,13 @@ class MouseOrTouch {
             result = true;
         }
 
-        console.log("mouseIsPressed() " + result);
+        //console.log("mouseIsPressed() " + result);
 
         return result;
     }
 
     movedX() {
-        console.log("movedX()");
+        //console.log("movedX()");
 
         let result = movedX;    // Assign p5.js global
 
@@ -58,7 +58,7 @@ class MouseOrTouch {
     }
 
     movedY() {
-        console.log("movedY()");
+        //console.log("movedY()");
 
         let result = movedY;  // Assign p5.js global
 
@@ -72,7 +72,7 @@ class MouseOrTouch {
     }
 
     touchEnded() {
-        console.log("touchEnded() " + touches.length);
+        //console.log("touchEnded() " + touches.length);
 
         this.doubleClick = false;
         this.lastTouch = null;
@@ -81,7 +81,7 @@ class MouseOrTouch {
     }
 
     touchMoved() {
-        console.log("touchMoved() " + touches.length);
+        //console.log("touchMoved() " + touches.length);
 
         if (touches.length > 0) {
             //console.log("touches[0](" + touches[0].x + ", " + touches[0].y + ")");
@@ -104,7 +104,7 @@ class MouseOrTouch {
     }
 
     touchStarted() {
-        console.log("touchStarted() " + touches.length);
+        //console.log("touchStarted() " + touches.length);
 
         this.timeTouchStarted = millis();
 

@@ -2,15 +2,9 @@ class Ellipsoid extends Element {
 
     constructor (size)
     {
-        super();
+        super(size);
 
         this.collisionRadius = (size.x + size.y + size.z) / 3;
-        this.size = size;
-    }
-
-    changeSize(size)
-    {
-        this.size = size;
     }
 
     collided(element)

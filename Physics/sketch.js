@@ -8,7 +8,13 @@ let fishBowl = null;
 let balls = null;
 let scene = null;
 
+let originalWindowWidth = null;
+let originalWindowHeight = null;
+
 function setup() {
+    originalWindowWidth = windowWidth;
+    originalWindowHeight = windowHeight;
+
     createCanvas(windowWidth, windowHeight, WEBGL);
 
     // https://p5js.org/reference/#/p5.Vector
@@ -45,25 +51,31 @@ function touchStarted() {
 function windowResized() {
     resizeCanvas(windowWidth, windowHeight);
 
-    // TODO: Add a scale() method
-
     //scene.elements.forEach(element => element.changeRadius(windowWidth / 200 * random(0.5, 1.0)));
-    scene.elements.forEach(element => element.changeSize(createVector(windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0))));
+    //scene.elements.forEach(element => element.changeSize(createVector(windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0))));
+
+    scene.elements.forEach(element => element.scale(windowWidth / originalWindowWidth));
 }
 
 // ----==== PRIVATE ====-------------------------------------------------------------------------------------
 
 function createRandomElement() {
-        //let element = new Sphere(windowWidth / 200 * random(0.75, 1.0));
+        //let element = new Sphere(windowWidth / 100 * random(0.75, 1.0));
+        
         //let element = new Box(createVector(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0)));
-        //let element = new Cone(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
+        //let element = new Box(createVector(windowWidth / 100 * random(1.0, 1.5), windowWidth / 100 * random(0.25, 0.5), windowWidth / 100 * random(2.0, 2.5)));
+
+        let element = new Cone(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
         //let element = new Cylinder(windowWidth / 100 * random(0.75, 1.0), windowWidth / 100 * random(0.75, 1.0) * 2);
         //let element = new Plane(createVector(windowWidth / 200 * random(0.75, 1.0), windowWidth / 200 * random(0.75, 1.0) * 2));
+
         //let element = new Ellipsoid(createVector(windowWidth / 100 * random(0.5, 1.0), windowWidth / 100 * random(0.5, 1.0), windowWidth / 100 * random(0.5, 1.0)));
         // M&M's
-        let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
+        //let element = new Ellipsoid(createVector(windowWidth / 100, windowWidth / 100, windowWidth / 200));
+
         // Cheerios (or donuts)
         //let element = new Torus(createVector(windowWidth / 100, windowWidth / 200));
+
         // let element = new Line(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0))
         //                        , createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
 

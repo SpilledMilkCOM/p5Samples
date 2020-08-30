@@ -1,5 +1,8 @@
 class Element {
-    constructor() {
+    constructor(size) {
+
+        this.originalSize = createVector(size.x, size.y, size.z);
+        this.size = size;
 
         // https://p5js.org/reference/#/p5/color
 
@@ -30,6 +33,11 @@ class Element {
     changeRotationalVelocity(rotationalVelocity) {
         this.rotationalVelocity = rotationalVelocity;
     }
+    
+    changeSize(size)
+    {
+        this.size = size;
+    }
 
     changeVelocity(velocity) {
         this.velocity = velocity;
@@ -58,5 +66,9 @@ class Element {
             this.location.add(this.velocity);
             this.rotation.add(this.rotationalVelocity);
         }
+    }
+
+    scale(scale) {
+        this.changeSize(createVector(this.originalSize.x * scale, this.originalSize.y * scale, this.originalSize.z * scale))
     }
 }

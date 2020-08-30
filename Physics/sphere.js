@@ -2,7 +2,9 @@ class Sphere extends Element {
 
     constructor (radius)
     {
-        super();
+        let diameter = radius * 2;
+
+        super(createVector(diameter, diameter, diameter));
 
         this.collisionRadius = radius;
         this.radius = radius;
@@ -10,12 +12,15 @@ class Sphere extends Element {
 
     changeRadius(radius)
     {
-        this.radius = radius;
+        let diameter = radius * 2;
+        this.changeSize(createVector(diameter, diameter, diameter));
     }
 
     changeSize(size)
     {
-        this.radius = size.x;
+        super.changeSize(size);
+
+        this.radius = size.x / 2.0;
     }
 
     collided(element)
