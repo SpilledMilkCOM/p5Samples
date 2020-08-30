@@ -61,7 +61,12 @@ class Scene {
             pointLight(this.pointLightColor, this.pointLightLocation);
         }
 
+        // p5.js global to move the camera (versus keeping the camera & light source stationary and moving the scene.)
+        //orbitControl();
+
         if (this.mouseOrTouch.mouseIsPressed()) {
+            //console.log("moved (" + this.mouseOrTouch.movedX() + ", " + this.mouseOrTouch.movedY() + ")");
+
             this.rotation.x += -this.mouseOrTouch.movedY() * 0.01;
             this.rotation.y += this.mouseOrTouch.movedX() * 0.01;
         }

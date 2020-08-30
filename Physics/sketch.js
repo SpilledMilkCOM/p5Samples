@@ -18,25 +18,7 @@ function setup() {
     scene.changePointLightLocation(createVector(windowWidth / 2, windowHeight / 2, windowWidth / 2));
     scene.changeContainment(new ContainmentBox(createVector(windowWidth / 8 * containmentScale, windowHeight / 8 * containmentScale, windowWidth / 7 * containmentScale)));
 
-    for(count = 0; count < 100; count++)
-    {
-        let element = createRandomElement();
-
-        let xVelocity = random(-1, 1) * velocityScale;
-        let yVelocity = random(-1, 1) * velocityScale;
-        let zVelocity = random(-1, 1) * velocityScale;
-
-        element.changeVelocity(createVector(xVelocity, yVelocity, zVelocity));
-        //element.changeColor(color(random(128,255), random(128,255), random(128,255), random(128,255)));       // With random Alpha channel.
-        element.changeColor(color(random(128,255), random(128,255), random(128,255)));
-
-        let myFrameRate = 60; //frameRate();
-        let rotationPerSecond = 2 * PI / myFrameRate * random(0.1, 0.2) * (random() < 0.5 ? -1 : 1);
-
-        element.changeRotationalVelocity(createVector(rotationPerSecond, rotationPerSecond, rotationPerSecond));
-
-        scene.addElement(element);
-    }
+    populateScene(scene);
 }
 
 // ----==== OVERRIDES ====-------------------------------------------------------------------------------------
@@ -89,4 +71,26 @@ function createRandomElement() {
         //let element = new Point(createVector(0, 0, 0));
 
         return element;
+}
+
+function populateScene(scene) {
+    for(count = 0; count < 100; count++)
+    {
+        let element = createRandomElement();
+
+        let xVelocity = random(-1, 1) * velocityScale;
+        let yVelocity = random(-1, 1) * velocityScale;
+        let zVelocity = random(-1, 1) * velocityScale;
+
+        element.changeVelocity(createVector(xVelocity, yVelocity, zVelocity));
+        //element.changeColor(color(random(128,255), random(128,255), random(128,255), random(128,255)));       // With random Alpha channel.
+        element.changeColor(color(random(128,255), random(128,255), random(128,255)));
+
+        let myFrameRate = 60; //frameRate();
+        let rotationPerSecond = 2 * PI / myFrameRate * random(0.1, 0.2) * (random() < 0.5 ? -1 : 1);
+
+        element.changeRotationalVelocity(createVector(rotationPerSecond, rotationPerSecond, rotationPerSecond));
+
+        scene.addElement(element);
+    }
 }
