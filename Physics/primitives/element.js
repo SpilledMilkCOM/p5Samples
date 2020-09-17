@@ -2,7 +2,7 @@ class Element {
     constructor(size) {
 
         this.originalSize = createVector(size.x, size.y, size.z);
-        this.size = size;
+        this.size = size.copy();        // Create a copy of the reference passed in (DON'T use it)
         this.scale = 1.0;
 
         // https://p5js.org/reference/#/p5/color
@@ -24,15 +24,15 @@ class Element {
     }
 
     changeLocation(location) {
-        this.location = location;
+        this.location = location.copy();
     }
 
     changeRotation(rotation) {
-        this.rotation = rotation;
+        this.rotation = rotation.copy();
     }
 
     changeRotationalVelocity(rotationalVelocity) {
-        this.rotationalVelocity = rotationalVelocity;
+        this.rotationalVelocity = rotationalVelocity.copy();
     }
     
     changeScale(scale) {
@@ -43,11 +43,25 @@ class Element {
     
     changeSize(size)
     {
-        this.size = size;
+        this.size = size.copy();
     }
 
     changeVelocity(velocity) {
-        this.velocity = velocity;
+        this.velocity = velocity.copy();
+    }
+
+    deepCopy(element) {
+        this.originalSize = element.originalSize.copy();
+        this.size = element.size.copy();
+        this.scale = element.scale;
+
+        this.color = element.color.copy();
+        this.location = element.location.copy();
+        this.rotation = element.rotation.copy();
+        this.rotationalVelocity = element.rotationalVelocity.copy();
+        this.velocity = element.velocity.copy();
+
+        this.collisionRadius = element.collisionRadius;
     }
 
     draw() {
