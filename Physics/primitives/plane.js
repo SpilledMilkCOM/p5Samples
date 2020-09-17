@@ -1,10 +1,19 @@
 class Plane extends Element {
 
-    constructor (size)
+    constructor(size)
     {
         super(size);
 
         this.collisionRadius = (size.x + size.y) / 4;
+    }
+
+    clone()
+    {
+        let result = new Plane(this.size);
+
+        result.deepCopy(this);
+
+        return result;
     }
 
     collided(element)
