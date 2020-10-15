@@ -57,6 +57,10 @@ class Scene {
         this.scaleElements(this.scale);
     }
 
+    clearElements() {
+        this.elements = new Array();
+    }
+
     /**
      * Call this in the p5.js draw() function (called each frame)
      */
