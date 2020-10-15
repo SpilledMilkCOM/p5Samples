@@ -11,7 +11,7 @@ The GitHub "Page" is hosted **[here](https://spilledmilkcom.github.io/p5Samples/
   Full details are in this [issue](https://github.com/processing/p5.js/issues/4722).
 
 * 📁 **3Dview**
-  * A 3D model testing the different primitives.
+  * A 3D model testing the different p5.js (box, line, torus, sphere) primitives.
   * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/N732bVsDQ)
 
 * 📁 **3Dwave**
