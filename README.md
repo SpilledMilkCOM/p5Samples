@@ -2,7 +2,7 @@
 
 Some beginner samples of p5
 
-The GitHub "Page" is hosted [here](https://spilledmilkcom.github.io/p5Samples/) and the code for that is in the docs 📁 folder.
+The GitHub "Page" is hosted **[here](https://spilledmilkcom.github.io/p5Samples/)** and the code for that is in the docs 📁 folder.
 
 * 📁 **3Dbug**
   * A 3D model illustrating a possible 2D / 3D line bug.
@@ -24,6 +24,9 @@ The GitHub "Page" is hosted [here](https://spilledmilkcom.github.io/p5Samples/) 
 * 📁 **Starter**
   * My first p5 starter kit created in the [p5 web editor](https://editor.p5js.org/)
   * The direct link to this [sketch](https://editor.p5js.org/SpilledMilkCOM/sketches/IvkGgnQJW)
+
+* 📁 **docs**
+  * Contains the "published" demo to this repo's [GitHub Page](https://spilledmilkcom.github.io/p5Samples/).
 
 ## References
 
