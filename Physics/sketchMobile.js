@@ -49,6 +49,8 @@ function setup() {
     buttonMenu.addButton('Sphere', clickSphereButton);
     buttonMenu.addButton('Torus', clickTorusButton);
 
+    buttonMenu.position(10, 10);
+
     // https://p5js.org/reference/#/p5.Vector
 
     scene = new Scene();
