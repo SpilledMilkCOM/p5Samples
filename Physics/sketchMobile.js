@@ -13,6 +13,8 @@ let scene = null;
 let originalWindowWidth = null;
 let originalWindowHeight = null;
 
+let buttonMenu = null;
+
 let boxButton = null;
 let coneButton = null;
 let cylinderButton = null;
@@ -33,50 +35,19 @@ function setup() {
 
     createCanvas(windowWidth, windowHeight, WEBGL);
 
-    boxButton = createButton('Box');
-    boxButton.mousePressed(clickBoxButton);
-    boxButton.position(menuMargin, menuMargin);
-    previousButton = boxButton;
+    buttonMenu = new ButtonMenu();
 
-    coneButton = createButton('Cone');
-    coneButton.mousePressed(clickConeButton);
-    coneButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    previousButton = coneButton;
+    // The order matters.  These will be stacked up left to right.
 
-    cylinderButton = createButton('Cylinder');
-    cylinderButton.mousePressed(clickCylinderButton);
-    cylinderButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    previousButton = cylinderButton;
-
-    ellipsoidButton = createButton('Ellipsoid');
-    ellipsoidButton.mousePressed(clickEllipsoidButton);
-    ellipsoidButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    previousButton = ellipsoidButton;
-
-    // lineButton = createButton('Line');
-    // lineButton.mousePressed(clickLineButton);
-    // lineButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    // previousButton = lineButton;
-
-    planeButton = createButton('Plane');
-    planeButton.mousePressed(clickPlaneButton);
-    planeButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    previousButton = planeButton;
-    
-    // pointButton = createButton('Point');
-    // pointButton.mousePressed(clickPointButton);
-    // pointButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    // previousButton = pointButton;
-
-    sphereButton = createButton('Sphere');
-    sphereButton.mousePressed(clickSphereButton);
-    sphereButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    previousButton = sphereButton;
-    
-    torusButton = createButton('Torus');
-    torusButton.mousePressed(clickTorusButton);
-    torusButton.position(previousButton.position().x + previousButton.size().width + menuMargin, menuMargin);
-    previousButton = torusButton;
+    buttonMenu.addButton('Box', clickBoxButton);
+    buttonMenu.addButton('Cone', clickConeButton);
+    buttonMenu.addButton('Cylinder', clickCylinderButton);
+    buttonMenu.addButton('Ellipsoid', clickEllipsoidButton);
+    //buttonMenu.addButton('Line', clickLineButton);
+    buttonMenu.addButton('Plane', clickPlaneButton);
+    //buttonMenu.addButton('Point', clickPointButton);
+    buttonMenu.addButton('Sphere', clickSphereButton);
+    buttonMenu.addButton('Torus', clickTorusButton);
 
     // https://p5js.org/reference/#/p5.Vector
 
