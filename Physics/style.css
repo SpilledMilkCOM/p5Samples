@@ -1,8 +1,13 @@
 html, body {
     margin: 0;
     padding: 0;
-  }
-  canvas {
+}
+
+button {
+    /* font-size: 1em;          1em = 16px (allows users to scale the font) */
+    font-size: 0.5cm;
+}
+
+canvas {
     display: block;
-  }
-  
+}

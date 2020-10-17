@@ -13,43 +13,18 @@ let scene = null;
 let originalWindowWidth = null;
 let originalWindowHeight = null;
 
-let buttonMenu = null;
-
-let boxButton = null;
-let coneButton = null;
-let cylinderButton = null;
-let ellipsoidButton = null;
-let lineButton = null;
-let planeButton = null;
-let pointButton = null;
-let sphereButton = null;
-let torusButton = null;
+let environmentMenu = null;
+let primitiveMenu = null;
 
 let activeShape = 'Ellipsoid';
 
 function setup() {
-    let previousButton = null;
-
     originalWindowWidth = windowWidth;
     originalWindowHeight = windowHeight;
 
     createCanvas(windowWidth, windowHeight, WEBGL);
 
-    buttonMenu = new ButtonMenu();
-
-    // The order matters.  These will be stacked up left to right.
-
-    buttonMenu.addButton('Box', clickBoxButton);
-    buttonMenu.addButton('Cone', clickConeButton);
-    buttonMenu.addButton('Cylinder', clickCylinderButton);
-    buttonMenu.addButton('Ellipsoid', clickEllipsoidButton);
-    //buttonMenu.addButton('Line', clickLineButton);
-    buttonMenu.addButton('Plane', clickPlaneButton);
-    //buttonMenu.addButton('Point', clickPointButton);
-    buttonMenu.addButton('Sphere', clickSphereButton);
-    buttonMenu.addButton('Torus', clickTorusButton);
-
-    buttonMenu.position(10, 10);
+    setupUI();
 
     // https://p5js.org/reference/#/p5.Vector
 
@@ -59,15 +34,18 @@ function setup() {
     scene.changeContainment(new ContainmentBox(createVector(windowWidth / 8 * containmentScale, windowHeight / 8 * containmentScale, windowWidth / 7 * containmentScale)));
 
     populateSceneWithMovingElements(scene);
-    //populateSceneWithPlanes(scene);
 }
 
-// ----==== EVENTS ====-------------------------------------------------------------------------------------
+// ----==== MENU EVENTS ====-------------------------------------------------------------------------------------
 
 function clickBoxButton() {
     activeShape = 'Box';
 
     populateSceneWithMovingElements(scene);
+}
+
+function clickClearButton() {
+    scene.clearElements();
 }
 
 function clickConeButton() {
@@ -92,6 +70,12 @@ function clickLineButton() {
     activeShape = 'Line';
 
     populateSceneWithMovingElements(scene);
+}
+
+function clickOctantsButton() {
+    activeShape = 'Octants';
+
+    populateSceneWithPlanes(scene);
 }
 
 function clickPlaneButton() {
@@ -177,16 +161,16 @@ function createRandomElement() {
             // M&M's
             element = new Ellipsoid(createVector(windowWidth / 75, windowWidth / 75, windowWidth / 150));
             break;
-            
+
         case 'Line':
             element = new Line(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0))
-                            , createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
+                , createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
             break;
 
         case 'Plane':
             element = new Plane(createVector(windowWidth / 200 * random(2.0, 4.0), windowWidth / 200 * random(2.0, 4.0)));
             break;
-            
+
         case 'Point':
             element = new Point(createVector(0, 0, 0));
             break;
@@ -203,15 +187,10 @@ function createRandomElement() {
         default:
     }
 
-    //let element = new Point(createVector(windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0), windowWidth / 10 * random(0.75, 1.0)));
-    //let element = new Point(createVector(0, 0, 0));
-
     return element;
 }
 
 function populateSceneWithMovingElements(scene) {
-    scene.clearElements();
-
     for (count = 0; count < 100; count++) {
         let element = createRandomElement();
 
@@ -264,4 +243,29 @@ function populateSceneWithPlanes(scene) {
     plane.changeRotationalVelocity(createVector(0, 0, -rotationPerSecond));
 
     scene.addElement(plane);
+}
+
+function setupUI() {
+    primitiveMenu = new ButtonMenu();
+
+    // The order matters.  These will be stacked up left to right.
+
+    primitiveMenu.addButton('Box', clickBoxButton);
+    primitiveMenu.addButton('Cone', clickConeButton);
+    primitiveMenu.addButton('Cylinder', clickCylinderButton);
+    primitiveMenu.addButton('Ellipsoid', clickEllipsoidButton);
+    //primitiveMenu.addButton('Line', clickLineButton);
+    primitiveMenu.addButton('Plane', clickPlaneButton);
+    //primitiveMenu.addButton('Point', clickPointButton);
+    primitiveMenu.addButton('Sphere', clickSphereButton);
+    primitiveMenu.addButton('Torus', clickTorusButton);
+
+    primitiveMenu.position(10, 10);
+
+    environmentMenu = new ButtonMenu();
+
+    environmentMenu.addButton('Clear', clickClearButton);
+    environmentMenu.addButton('Octants', clickOctantsButton);
+
+    environmentMenu.position(10, 45);
 }
