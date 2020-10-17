@@ -15,9 +15,6 @@ class Torus extends Element {
     }
 
     drawElement() {     // OVERRIDE
-        // Spheres don't look very good with their lattice.
-        noStroke();
-
         torus(this.size.x, this.size.y);
     }
 }

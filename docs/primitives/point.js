@@ -5,6 +5,7 @@ class Point extends Element {
         super();
 
         this.location = location;
+        this.strokeWeight = 1;
     }
 
     collided(element)

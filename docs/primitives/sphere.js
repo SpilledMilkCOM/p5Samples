@@ -30,9 +30,6 @@ class Sphere extends Element {
     }
 
     drawElement() {     // OVERRIDE
-        // Spheres don't look very good with their lattice.
-        noStroke();
-
         sphere(this.radius);
     }
 }

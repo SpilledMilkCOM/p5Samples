@@ -37,7 +37,6 @@ class Cylinder extends Element {
     }
 
     drawElement() {
-        noStroke();     // TODO: Make this a property of the element.
         cylinder(this.radius, this.height);
     }
 }
