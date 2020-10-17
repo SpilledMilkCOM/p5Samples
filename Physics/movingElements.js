@@ -22,13 +22,25 @@ function createRandomElement(activeShape) {
 
         case 'Line':
             // These vectors are all created in the 1st octant.
+
+            let p1 = createVector(windowWidth / 10 * random(0.75, 1.0)
+                                , windowWidth / 10 * random(0.75, 1.0)
+                                , windowWidth / 10 * random(0.75, 1.0));
+            let p2 = createVector(windowWidth / 10 * random(0.75, 1.0)
+                                , windowWidth / 10 * random(0.75, 1.0)
+                                , windowWidth / 10 * random(0.75, 1.0));
+
             // The lines need to be centered around the origin.
-            element = new Line(createVector(windowWidth / 10 * random(0.75, 1.0)
-                                            , windowWidth / 10 * random(0.75, 1.0)
-                                            , windowWidth / 10 * random(0.75, 1.0))
-                            , createVector(windowWidth / 10 * random(0.75, 1.0)
-                                            , windowWidth / 10 * random(0.75, 1.0)
-                                            , windowWidth / 10 * random(0.75, 1.0)));
+
+            // Translate vector is the midpoint multiplied by -1.
+            let translate = createVector((p2.x + p1.x) / 2
+                                        , (p2.y + p1.y) / 2
+                                        , (p2.z + p1.z) / 2).mult(-1);
+
+            p1.add(translate);
+            p2.add(translate);
+
+            element = new Line(p1, p2);
             break;
 
         case 'Plane':

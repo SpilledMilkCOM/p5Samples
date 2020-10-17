@@ -10,7 +10,7 @@ class Line extends Element {
         this.p1 = p1;
         this.p2 = p2;
 
-        this.stroke = true;
+        this.strokeWeight = 1;
     }
 
     changeSize(size) {

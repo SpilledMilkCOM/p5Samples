@@ -10,7 +10,7 @@ class Element {
         // https://p5js.org/reference/#/p5/color
 
         this.color = color(255);
-        this.stroke = false;
+        this.strokeWeight = 0;      // 0 means no-stroke
 
         // https://p5js.org/reference/#/p5.Vector
 
@@ -85,8 +85,8 @@ class Element {
         rotateY(this.rotation.y);
         rotateZ(this.rotation.z);
 
-        if (this.stroke) {
-            strokeWeight(1);
+        if (this.strokeWeight > 0) {
+            strokeWeight(this.strokeWeight);
             stroke(this.color);
         }
         else {
