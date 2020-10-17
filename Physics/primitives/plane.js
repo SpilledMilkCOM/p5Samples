@@ -23,7 +23,6 @@ class Plane extends Element {
     }
 
     drawElement() {
-        noStroke();     // TODO: Make this a property of the element.
         plane(this.size.x, this.size.y);
     }
 }

@@ -1,13 +1,16 @@
 class Element {
     constructor(size) {
 
-        this.originalSize = createVector(size.x, size.y, size.z);
-        this.size = size.copy();        // Create a copy of the reference passed in (DON'T use it)
+        if (size != null) {
+            this.originalSize = createVector(size.x, size.y, size.z);
+            this.size = size.copy();        // Create a copy of the reference passed in (DON'T use it)
+        }
         this.scale = 1.0;
 
         // https://p5js.org/reference/#/p5/color
 
         this.color = color(255);
+        this.stroke = false;
 
         // https://p5js.org/reference/#/p5.Vector
 
@@ -34,16 +37,19 @@ class Element {
     changeRotationalVelocity(rotationalVelocity) {
         this.rotationalVelocity = rotationalVelocity.copy();
     }
-    
+
     changeScale(scale) {
         this.scale = scale;
-        
+
         this.changeSize(createVector(this.originalSize.x * scale, this.originalSize.y * scale, this.originalSize.z * scale))
     }
-    
-    changeSize(size)
-    {
+
+    changeSize(size) {
         this.size = size.copy();
+    }
+
+    changeStroke(stroke) {
+        this.stroke = stroke;
     }
 
     changeVelocity(velocity) {
@@ -78,6 +84,14 @@ class Element {
         rotateX(this.rotation.x);
         rotateY(this.rotation.y);
         rotateZ(this.rotation.z);
+
+        if (this.stroke) {
+            strokeWeight(1);
+            stroke(this.color);
+        }
+        else {
+            noStroke();
+        }
 
         this.drawElement();
 

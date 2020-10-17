@@ -37,7 +37,6 @@ class Cone extends Element {
     }
 
     drawElement() {
-        noStroke();     // TODO: Make this a property of the element.
         cone(this.radius, this.height);
     }
 }
