@@ -20,6 +20,14 @@ class Composite extends Element {
         this.elements.forEach(element => element.changeScale(scale));
     }
 
+    contain(containment) {
+        this.elements.forEach(element => {
+            if (containment) {
+                containment.contain(element);
+            }
+        });
+    }
+
     drawElement() {
         this.elements.forEach(element => element.draw());
     }

@@ -2,7 +2,7 @@ class Scene {
 
     constructor() {
 
-        this.elements = new Array();
+        this.elements = new Composite();
 
         // Lots of default stuff in here.
 
@@ -22,13 +22,13 @@ class Scene {
     }
 
     addElement(element) {
-        this.elements.push(element);
+        this.elements.addElement(element);
     }
 
     adjustScale(scaleAdjustment) {
         this.scale += scaleAdjustment;
 
-        this.scaleElements(this.scale);
+        this.elements.changeScale(this.scale);
     }
 
     changeBackground(backgroundColor) {
@@ -40,7 +40,7 @@ class Scene {
     }
 
     changeDrawAxes(drawAxes) {
-        this.drawAxes = this.drawAxes;
+        this.drawAxes = drawAxes;
     }
 
     changePointLightColor(pointLightColor) {
@@ -54,11 +54,11 @@ class Scene {
     changeScale(scale) {
         this.scale = scale;
         
-        this.scaleElements(this.scale);
+        this.elements.changeScale(this.scale);
     }
 
     clearElements() {
-        this.elements = new Array();
+        this.elements = new Composite();
     }
 
     /**
@@ -94,15 +94,7 @@ class Scene {
         rotateY(this.rotation.y);
         rotateZ(this.rotation.z);
 
-        this.elements.forEach(element => {
-            if (this.containment) {
-                this.containment.contain(element);
-            }
-            element.draw()
-        });
-    }
-
-    scaleElements(scale) {
-        this.elements.forEach(element => element.changeScale(scale));
+        this.elements.contain(this.containment);
+        this.elements.draw()
     }
 }
