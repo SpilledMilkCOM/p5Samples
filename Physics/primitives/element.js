@@ -2,8 +2,12 @@ class Element {
     constructor(size) {
 
         if (size != null) {
-            this.originalSize = createVector(size.x, size.y, size.z);
-            this.size = size.copy();        // Create a copy of the reference passed in (DON'T use it)
+            this.originalSize = size.copy();        // Create a copy of the reference passed in (DON'T use it)
+            this.size = size.copy();
+        }
+        else {
+            this.originalSize = createVector(0, 0, 0);
+            this.size = this.originalSize.copy();
         }
         this.scale = 1.0;
 
