@@ -60,6 +60,10 @@ function clickEllipsoidButton() {
     populateSceneWithMovingElements(scene, 'Ellipsoid');
 }
 
+function clickH2OButton() {
+    populateSceneWithMovingElements(scene, 'H2O');
+}
+
 function clickLineButton() {
     populateSceneWithMovingElements(scene, 'Line');
 }
@@ -143,6 +147,7 @@ function setupUI() {
     primitiveMenu.addButton('Cone', clickConeButton);
     primitiveMenu.addButton('Cylinder', clickCylinderButton);
     primitiveMenu.addButton('Ellipsoid', clickEllipsoidButton);
+    primitiveMenu.addButton('H2O', clickH2OButton);
     primitiveMenu.addButton('Line', clickLineButton);
     primitiveMenu.addButton('Plane', clickPlaneButton);
     primitiveMenu.addButton('Point', clickPointButton);

@@ -39,3 +39,6 @@ The GitHub "Page" is hosted **[here](https://spilledmilkcom.github.io/p5Samples/
 * [WebGL Fundamentals](https://webglfundamentals.org/)
 * [WebGL Wiki](https://www.khronos.org/webgl/wiki/Main_Page)
 * [Button Sizes](https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/)
+* [Visual Studio Code Tips & Tricks](https://code.visualstudio.com/docs/getstarted/tips-and-tricks)
+  * "Code Folding" - Collapse code sections using `CTRL+SHIFT+[` and `CTRL+SHIFT+]`
+    * Global - Fold All `CTRL+K CTRL+0` and Unfold All `CTRL+K CTRL+J`

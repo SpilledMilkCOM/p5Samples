@@ -75,7 +75,7 @@ class Element {
 
         fill(this.color);
 
-        // Then translate to its location.
+        // Translate to its location.
 
         translate(this.location.x, this.location.y, this.location.z);
 
@@ -96,6 +96,8 @@ class Element {
         this.drawElement();
 
         pop();
+
+        // If the mouse is pressed then FREEZE everything, otherwise "animate" based on velocities.
 
         if (!mouseIsPressed) {
             this.location.add(this.velocity);
