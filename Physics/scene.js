@@ -9,6 +9,7 @@ class Scene {
         this.backgroundColor = color(128);
 
         this.ambientLight = color(60);
+        this.origin = createVector(0, 0, 0);
         this.pointLightColor = color(255);
         this.pointLightLocation = createVector(0, 0, 0);
         this.rotation = createVector(0, 0, 0);
@@ -41,6 +42,10 @@ class Scene {
 
     changeDrawAxes(drawAxes) {
         this.drawAxes = drawAxes;
+    }
+
+    changeOrigin(origin) {
+        this.origin = origin;
     }
 
     changePointLightColor(pointLightColor) {
@@ -87,6 +92,11 @@ class Scene {
             this.rotation.x += -this.mouseOrTouch.movedY() * 0.01;
             this.rotation.y += this.mouseOrTouch.movedX() * 0.01;
         }
+
+
+        // Translate entire scene.
+
+        translate(this.origin.x, this.origin.y, this.origin.z);
 
         // Rotate entire scene.
 

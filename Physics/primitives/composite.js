@@ -9,7 +9,16 @@ class Composite extends Shape {
     addElement(element) {
         this.elements.push(element);
 
-        // TODO: Adjust the size based on elements added.
+        // Adjust the size based on elements added.
+
+        this.size = this.elements[0].size.copy();
+
+        if (this.elements.length > 1) {
+            for(let index = 1; index < this.elements.length; index++)
+            {
+                
+            }
+        }
 
         return element;     // So you can use it for an assignment.
     }

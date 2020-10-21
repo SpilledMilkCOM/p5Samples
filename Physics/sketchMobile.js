@@ -88,6 +88,14 @@ function clickTorusButton() {
     populateSceneWithMovingElements(scene, 'Torus');
 }
 
+function clickZoomInButton() {
+    scene.changeOrigin(scene.origin.add(createVector(0, 0, windowWidth / 10)));
+}
+
+function clickZoomOutButton() {
+    scene.changeOrigin(scene.origin.add(createVector(0, 0, -windowWidth / 10)));    
+}
+
 // ----==== OVERRIDES ====-------------------------------------------------------------------------------------
 
 /**
@@ -161,6 +169,8 @@ function setupUI() {
     environmentMenu.addButton('Clear', clickClearButton);
     environmentMenu.addButton('Bounds', clickBoundsButton);
     environmentMenu.addButton('Octants', clickOctantsButton);
+    environmentMenu.addButton('+', clickZoomInButton);
+    environmentMenu.addButton('-', clickZoomOutButton);
 
     environmentMenu.position(10, 45);
 }
