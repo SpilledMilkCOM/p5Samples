@@ -1,4 +1,4 @@
-class Torus extends Element {
+class Torus extends Shape {
 
     constructor (size)
     {

@@ -1,4 +1,4 @@
-class Line extends Element {
+class Line extends Shape {
 
     constructor(p1, p2) {
         let size = createVector(Math.abs(p2.x - p1.x)

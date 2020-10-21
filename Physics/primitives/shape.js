@@ -1,4 +1,4 @@
-class Element {
+class Shape {
     constructor(size) {
 
         if (size != null) {

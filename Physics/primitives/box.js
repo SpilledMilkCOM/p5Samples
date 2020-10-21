@@ -1,4 +1,4 @@
-class Box extends Element {
+class Box extends Shape {
 
     constructor (size)
     {

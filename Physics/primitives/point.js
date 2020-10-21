@@ -1,4 +1,4 @@
-class Point extends Element {
+class Point extends Shape {
 
     constructor (location)
     {

@@ -1,4 +1,4 @@
-class Ellipsoid extends Element {
+class Ellipsoid extends Shape {
 
     constructor (size)
     {

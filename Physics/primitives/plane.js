@@ -1,4 +1,4 @@
-class Plane extends Element {
+class Plane extends Shape {
 
     constructor(size)
     {

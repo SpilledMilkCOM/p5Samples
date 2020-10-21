@@ -1,4 +1,4 @@
-class Cone extends Element {
+class Cone extends Shape {
 
     constructor (radius, height)
     {

@@ -1,4 +1,4 @@
-class Composite extends Element {
+class Composite extends Shape {
 
     constructor() {
         super();

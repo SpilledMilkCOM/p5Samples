@@ -1,4 +1,4 @@
-class Cylinder extends Element {
+class Cylinder extends Shape {
 
     constructor (radius, height)
     {

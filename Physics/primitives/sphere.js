@@ -1,4 +1,4 @@
-class Sphere extends Element {
+class Sphere extends Shape {
 
     constructor (radius)
     {
