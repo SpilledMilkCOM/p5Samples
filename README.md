@@ -36,6 +36,7 @@ The GitHub "Page" is hosted **[here](https://spilledmilkcom.github.io/p5Samples/
 ## References
 
 * [p5.js API Reference](https://p5js.org/reference/)
+* [p5.js GitHub Repo](https://github.com/processing/p5.js)
 * [WebGL Fundamentals](https://webglfundamentals.org/)
 * [WebGL Wiki](https://www.khronos.org/webgl/wiki/Main_Page)
 * [Button Sizes](https://uxmovement.com/mobile/optimal-size-and-spacing-for-mobile-buttons/)
