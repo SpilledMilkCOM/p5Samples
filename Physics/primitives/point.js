@@ -9,6 +9,7 @@ class Point extends Shape {
     }
 
     drawElement() {
-        point(this.location.x, this.location.y, this.location.z);
+        // The coordinates have already been translated in the Shape class.
+        point(0, 0, 0);
     }
 }

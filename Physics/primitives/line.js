@@ -18,6 +18,7 @@ class Line extends Shape {
     }
 
     drawElement() {
+        // These points are relative to the origin, and that origin is translated using "location"
         line(this.p1.x, this.p1.y, this.p1.z, this.p2.x, this.p2.y, this.p2.z);
     }
 }
