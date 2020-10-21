@@ -23,12 +23,6 @@ class Sphere extends Shape {
         this.radius = size.x / 2.0;
     }
 
-    collided(element)
-    {
-        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
-        || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
-    }
-
     drawElement() {     // OVERRIDE
         sphere(this.radius);
     }

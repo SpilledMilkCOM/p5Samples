@@ -30,12 +30,6 @@ class Cone extends Shape {
         this.height = size.z;
     }
 
-    collided(element)
-    {
-        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
-        || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
-    }
-
     drawElement() {
         cone(this.radius, this.height);
     }

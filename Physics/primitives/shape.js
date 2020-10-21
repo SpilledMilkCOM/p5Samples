@@ -60,6 +60,12 @@ class Shape {
         this.velocity = velocity.copy();
     }
 
+    collided(element)
+    {
+        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
+        || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
+    }
+
     deepCopy(element) {
         this.originalSize = element.originalSize.copy();
         this.size = element.size.copy();
