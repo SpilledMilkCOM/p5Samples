@@ -1,9 +1,13 @@
-class Element {
+class Shape {
     constructor(size) {
 
         if (size != null) {
-            this.originalSize = createVector(size.x, size.y, size.z);
-            this.size = size.copy();        // Create a copy of the reference passed in (DON'T use it)
+            this.originalSize = size.copy();        // Create a copy of the reference passed in (DON'T use it)
+            this.size = size.copy();
+        }
+        else {
+            this.originalSize = createVector(0, 0, 0);
+            this.size = this.originalSize.copy();
         }
         this.scale = 1.0;
 
@@ -56,6 +60,11 @@ class Element {
         this.velocity = velocity.copy();
     }
 
+    collided(element) {
+        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
+            || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
+    }
+
     deepCopy(element) {
         this.originalSize = element.originalSize.copy();
         this.size = element.size.copy();
@@ -75,7 +84,7 @@ class Element {
 
         fill(this.color);
 
-        // Then translate to its location.
+        // Translate to its location.
 
         translate(this.location.x, this.location.y, this.location.z);
 
@@ -96,6 +105,8 @@ class Element {
         this.drawElement();
 
         pop();
+
+        // If the mouse is pressed then FREEZE everything, otherwise "animate" based on velocities.
 
         if (!mouseIsPressed) {
             this.location.add(this.velocity);

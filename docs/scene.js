@@ -2,13 +2,14 @@ class Scene {
 
     constructor() {
 
-        this.elements = new Array();
+        this.elements = new Composite();
 
         // Lots of default stuff in here.
 
         this.backgroundColor = color(128);
 
         this.ambientLight = color(60);
+        this.origin = createVector(0, 0, 0);
         this.pointLightColor = color(255);
         this.pointLightLocation = createVector(0, 0, 0);
         this.rotation = createVector(0, 0, 0);
@@ -22,13 +23,13 @@ class Scene {
     }
 
     addElement(element) {
-        this.elements.push(element);
+        this.elements.addElement(element);
     }
 
     adjustScale(scaleAdjustment) {
         this.scale += scaleAdjustment;
 
-        this.scaleElements(this.scale);
+        this.elements.changeScale(this.scale);
     }
 
     changeBackground(backgroundColor) {
@@ -40,7 +41,11 @@ class Scene {
     }
 
     changeDrawAxes(drawAxes) {
-        this.drawAxes = this.drawAxes;
+        this.drawAxes = drawAxes;
+    }
+
+    changeOrigin(origin) {
+        this.origin = origin;
     }
 
     changePointLightColor(pointLightColor) {
@@ -54,11 +59,11 @@ class Scene {
     changeScale(scale) {
         this.scale = scale;
         
-        this.scaleElements(this.scale);
+        this.elements.changeScale(this.scale);
     }
 
     clearElements() {
-        this.elements = new Array();
+        this.elements = new Composite();
     }
 
     /**
@@ -88,21 +93,18 @@ class Scene {
             this.rotation.y += this.mouseOrTouch.movedX() * 0.01;
         }
 
+
+        // Translate entire scene.
+
+        translate(this.origin.x, this.origin.y, this.origin.z);
+
         // Rotate entire scene.
 
         rotateX(this.rotation.x);
         rotateY(this.rotation.y);
         rotateZ(this.rotation.z);
 
-        this.elements.forEach(element => {
-            if (this.containment) {
-                this.containment.contain(element);
-            }
-            element.draw()
-        });
-    }
-
-    scaleElements(scale) {
-        this.elements.forEach(element => element.changeScale(scale));
+        this.elements.contain(this.containment);
+        this.elements.draw()
     }
 }

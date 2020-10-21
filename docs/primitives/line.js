@@ -1,4 +1,4 @@
-class Line extends Element {
+class Line extends Shape {
 
     constructor(p1, p2) {
         let size = createVector(Math.abs(p2.x - p1.x)
@@ -17,12 +17,8 @@ class Line extends Element {
         this.size = size;
     }
 
-    collided(element) {
-        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
-            || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
-    }
-
     drawElement() {
+        // These points are relative to the origin, and that origin is translated using "location"
         line(this.p1.x, this.p1.y, this.p1.z, this.p2.x, this.p2.y, this.p2.z);
     }
 }

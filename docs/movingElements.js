@@ -20,6 +20,26 @@ function createRandomElement(activeShape) {
             element = new Ellipsoid(createVector(windowWidth / 75, windowWidth / 75, windowWidth / 150));
             break;
 
+        case 'H2O':
+            element = new Composite();
+
+            let atom = element.addElement(new Sphere(windowWidth / 100));
+
+            atom.changeLocation(createVector(atom.size.x / 3, 0, 0));
+            atom.changeColor(color(0, 0, 255, 170));
+
+            atom = element.addElement(new Sphere(windowWidth / 100));
+
+            atom.changeLocation(createVector(-atom.size.x / 3, 0, 0));
+            atom.changeColor(color(0, 0, 255, 170));
+
+            atom = element.addElement(new Sphere(windowWidth / 100));
+
+            atom.changeLocation(createVector(0, -atom.size.x / 3, 0));
+            atom.changeColor(color(0, 255, 0, 170));
+
+            break;
+
         case 'Line':
             // These vectors are all created in the 1st octant.
 

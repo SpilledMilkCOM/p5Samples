@@ -1,4 +1,4 @@
-class Point extends Element {
+class Point extends Shape {
 
     constructor (location)
     {
@@ -8,13 +8,8 @@ class Point extends Element {
         this.strokeWeight = 1;
     }
 
-    collided(element)
-    {
-        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
-        || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
-    }
-
     drawElement() {
-        point(this.location.x, this.location.y, this.location.z);
+        // The coordinates have already been translated in the Shape class.
+        point(0, 0, 0);
     }
 }

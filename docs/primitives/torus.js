@@ -1,4 +1,4 @@
-class Torus extends Element {
+class Torus extends Shape {
 
     constructor (size)
     {
@@ -6,12 +6,6 @@ class Torus extends Element {
 
         this.collisionRadius = size.x;
         this.size = size;
-    }
-
-    collided(element)
-    {
-        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
-        || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
     }
 
     drawElement() {     // OVERRIDE

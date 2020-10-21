@@ -1,4 +1,4 @@
-class Cone extends Element {
+class Cone extends Shape {
 
     constructor (radius, height)
     {
@@ -28,12 +28,6 @@ class Cone extends Element {
 
         this.radius = size.x / 2.0;
         this.height = size.z;
-    }
-
-    collided(element)
-    {
-        return (dist(this.location, element.location) < this.collisionRadius + element.collisionRadius)
-        || (dist(add(this.location, this.velocity), add(element.location, element.velocity)) < this.collisionRadius + element.collisionRadius);
     }
 
     drawElement() {
